@@ -1,0 +1,76 @@
+module getDotStarts ( 
+					input  [1:0] level,
+					output [143:0] dotMap
+               );
+    
+	 logic [143:0] lvl1Dots, lvl2Dots, defaultDots;
+	 
+	 always_comb begin
+	 
+
+			unique case (level)
+			2'b00 : begin
+				dotMap = defaultDots;
+			end
+			2'b01 : begin
+				dotMap = lvl1Dots;
+			end
+			2'b10 : begin
+				dotMap = lvl2Dots;
+			end
+			default : begin
+				dotMap = defaultDots;
+			end
+		
+			endcase
+
+			
+	 end
+   
+	
+    assign lvl1Dots = {
+		 12'h7fe,
+		 12'h56a,
+		 12'h7fe,
+		 12'h7fe,
+		 12'h1f8,
+		 12'h79e,
+		 12'h198,
+		 12'h1f8,
+		 12'h7fe,
+		 12'h7fe,
+		 12'h7fe,
+		 12'h7fe,
+	 };
+	 assign lvl2Dots = { // currently matches lvl 1
+		 12'h7fe,
+		 12'h56a,
+		 12'h7fe,
+		 12'h7fe,
+		 12'h1f8,
+		 12'h79e,
+		 12'h198,
+		 12'h1f8,
+		 12'h7fe,
+		 12'h7fe,
+		 12'h7fe,
+		 12'h7fe,
+	 };
+	 
+	 assign defaultDots = {
+		{12{1'b0}},
+		{12{1'b0}},
+		{12{1'b0}},
+		{12{1'b0}},
+		12'h0f0,
+		12'h090,
+		12'h090,
+		12'h0f0,
+		{12{1'b0}},
+		{12{1'b0}},
+		{12{1'b0}},
+		{12{1'b0}}
+	 };
+    
+
+endmodule

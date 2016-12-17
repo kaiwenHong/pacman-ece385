@@ -1,0 +1,816 @@
+
+State Machine - |lab8|ghost_motion:pink_ghost|counter_rand
+Name counter_rand.111 counter_rand.110 counter_rand.101 counter_rand.100 counter_rand.011 counter_rand.010 counter_rand.001 counter_rand.000 
+counter_rand.000 0 0 0 0 0 0 0 0 
+counter_rand.001 0 0 0 0 0 0 1 1 
+counter_rand.010 0 0 0 0 0 1 0 1 
+counter_rand.011 0 0 0 0 1 0 0 1 
+counter_rand.100 0 0 0 1 0 0 0 1 
+counter_rand.101 0 0 1 0 0 0 0 1 
+counter_rand.110 0 1 0 0 0 0 0 1 
+counter_rand.111 1 0 0 0 0 0 0 1 
+
+State Machine - |lab8|ghost_motion:red_ghost|counter_rand
+Name counter_rand.111 counter_rand.110 counter_rand.101 counter_rand.100 counter_rand.011 counter_rand.010 counter_rand.001 counter_rand.000 
+counter_rand.000 0 0 0 0 0 0 0 0 
+counter_rand.001 0 0 0 0 0 0 1 1 
+counter_rand.010 0 0 0 0 0 1 0 1 
+counter_rand.011 0 0 0 0 1 0 0 1 
+counter_rand.100 0 0 0 1 0 0 0 1 
+counter_rand.101 0 0 1 0 0 0 0 1 
+counter_rand.110 0 1 0 0 0 0 0 1 
+counter_rand.111 1 0 0 0 0 0 0 1 
+
+State Machine - |lab8|ghost_motion:blue_ghost|counter_rand
+Name counter_rand.111 counter_rand.110 counter_rand.101 counter_rand.100 counter_rand.011 counter_rand.010 counter_rand.001 counter_rand.000 
+counter_rand.000 0 0 0 0 0 0 0 0 
+counter_rand.001 0 0 0 0 0 0 1 1 
+counter_rand.010 0 0 0 0 0 1 0 1 
+counter_rand.011 0 0 0 0 1 0 0 1 
+counter_rand.100 0 0 0 1 0 0 0 1 
+counter_rand.101 0 0 1 0 0 0 0 1 
+counter_rand.110 0 1 0 0 0 0 0 1 
+counter_rand.111 1 0 0 0 0 0 0 1 
+
+State Machine - |lab8|ghost_motion:orange_ghost|counter_rand
+Name counter_rand.111 counter_rand.110 counter_rand.101 counter_rand.100 counter_rand.011 counter_rand.010 counter_rand.001 counter_rand.000 
+counter_rand.000 0 0 0 0 0 0 0 0 
+counter_rand.001 0 0 0 0 0 0 1 1 
+counter_rand.010 0 0 0 0 0 1 0 1 
+counter_rand.011 0 0 0 0 1 0 0 1 
+counter_rand.100 0 0 0 1 0 0 0 1 
+counter_rand.101 0 0 1 0 0 0 0 1 
+counter_rand.110 0 1 0 0 0 0 0 1 
+counter_rand.111 1 0 0 0 0 0 0 1 
+
+State Machine - |lab8|nios_system:nios_system|nios_system_sdram:sdram|m_next
+Name m_next.010000000 m_next.000010000 m_next.000001000 m_next.000000001 
+m_next.000000001 0 0 0 0 
+m_next.000001000 0 0 1 1 
+m_next.000010000 0 1 0 1 
+m_next.010000000 1 0 0 1 
+
+State Machine - |lab8|nios_system:nios_system|nios_system_sdram:sdram|m_state
+Name m_state.100000000 m_state.010000000 m_state.001000000 m_state.000100000 m_state.000010000 m_state.000001000 m_state.000000100 m_state.000000010 m_state.000000001 
+m_state.000000001 0 0 0 0 0 0 0 0 0 
+m_state.000000010 0 0 0 0 0 0 0 1 1 
+m_state.000000100 0 0 0 0 0 0 1 0 1 
+m_state.000001000 0 0 0 0 0 1 0 0 1 
+m_state.000010000 0 0 0 0 1 0 0 0 1 
+m_state.000100000 0 0 0 1 0 0 0 0 1 
+m_state.001000000 0 0 1 0 0 0 0 0 1 
+m_state.010000000 0 1 0 0 0 0 0 0 1 
+m_state.100000000 1 0 0 0 0 0 0 0 1 
+
+State Machine - |lab8|nios_system:nios_system|nios_system_sdram:sdram|i_next
+Name i_next.111 i_next.101 i_next.010 i_next.000 
+i_next.000 0 0 0 0 
+i_next.010 0 0 1 1 
+i_next.101 0 1 0 1 
+i_next.111 1 0 0 1 
+
+State Machine - |lab8|nios_system:nios_system|nios_system_sdram:sdram|i_state
+Name i_state.111 i_state.101 i_state.011 i_state.010 i_state.001 i_state.000 
+i_state.000 0 0 0 0 0 0 
+i_state.001 0 0 0 0 1 1 
+i_state.010 0 0 0 1 0 1 
+i_state.011 0 0 1 0 0 1 
+i_state.101 0 1 0 0 0 1 
+i_state.111 1 0 0 0 0 1 
+
+State Machine - |lab8|nios_system:nios_system|nios_system_nios2_qsys_0:nios2_qsys_0|nios_system_nios2_qsys_0_cpu:cpu|nios_system_nios2_qsys_0_cpu_nios2_oci:the_nios_system_nios2_qsys_0_cpu_nios2_oci|nios_system_nios2_qsys_0_cpu_debug_slave_wrapper:the_nios_system_nios2_qsys_0_cpu_debug_slave_wrapper|nios_system_nios2_qsys_0_cpu_debug_slave_tck:the_nios_system_nios2_qsys_0_cpu_debug_slave_tck|DRsize
+Name DRsize.101 DRsize.100 DRsize.011 DRsize.010 DRsize.001 DRsize.000 
+DRsize.000 0 0 0 0 0 0 
+DRsize.001 0 0 0 0 1 1 
+DRsize.010 0 0 0 1 0 1 
+DRsize.011 0 0 1 0 0 1 
+DRsize.100 0 1 0 0 0 1 
+DRsize.101 1 0 0 0 0 1 
+
+State Machine - |lab8|control:control_module|state
+Name state.LEVEL1 state.BEAT2 state.BEAT1 state.LEVEL2 state.NEWGAME 
+state.NEWGAME 0 0 0 0 0 
+state.LEVEL2 0 0 0 1 1 
+state.BEAT1 0 0 1 0 1 
+state.BEAT2 0 1 0 0 1 
+state.LEVEL1 1 0 0 0 1 
+
+State Machine - |lab8|allPacDots:all_dots_module|pacDotRow:dotRow12|pacDot:pacDot12|state
+Name state.EATEN 
+state.UNEATEN 0 
+state.EATEN 1 
+
+State Machine - |lab8|allPacDots:all_dots_module|pacDotRow:dotRow12|pacDot:pacDot11|state
+Name state.EATEN 
+state.UNEATEN 0 
+state.EATEN 1 
+
+State Machine - |lab8|allPacDots:all_dots_module|pacDotRow:dotRow12|pacDot:pacDot10|state
+Name state.EATEN 
+state.UNEATEN 0 
+state.EATEN 1 
+
+State Machine - |lab8|allPacDots:all_dots_module|pacDotRow:dotRow12|pacDot:pacDot9|state
+Name state.EATEN 
+state.UNEATEN 0 
+state.EATEN 1 
+
+State Machine - |lab8|allPacDots:all_dots_module|pacDotRow:dotRow12|pacDot:pacDot8|state
+Name state.EATEN 
+state.UNEATEN 0 
+state.EATEN 1 
+
+State Machine - |lab8|allPacDots:all_dots_module|pacDotRow:dotRow12|pacDot:pacDot7|state
+Name state.EATEN 
+state.UNEATEN 0 
+state.EATEN 1 
+
+State Machine - |lab8|allPacDots:all_dots_module|pacDotRow:dotRow12|pacDot:pacDot6|state
+Name state.EATEN 
+state.UNEATEN 0 
+state.EATEN 1 
+
+State Machine - |lab8|allPacDots:all_dots_module|pacDotRow:dotRow12|pacDot:pacDot5|state
+Name state.EATEN 
+state.UNEATEN 0 
+state.EATEN 1 
+
+State Machine - |lab8|allPacDots:all_dots_module|pacDotRow:dotRow12|pacDot:pacDot4|state
+Name state.EATEN 
+state.UNEATEN 0 
+state.EATEN 1 
+
+State Machine - |lab8|allPacDots:all_dots_module|pacDotRow:dotRow12|pacDot:pacDot3|state
+Name state.EATEN 
+state.UNEATEN 0 
+state.EATEN 1 
+
+State Machine - |lab8|allPacDots:all_dots_module|pacDotRow:dotRow12|pacDot:pacDot2|state
+Name state.EATEN 
+state.UNEATEN 0 
+state.EATEN 1 
+
+State Machine - |lab8|allPacDots:all_dots_module|pacDotRow:dotRow12|pacDot:pacDot1|state
+Name state.EATEN 
+state.UNEATEN 0 
+state.EATEN 1 
+
+State Machine - |lab8|allPacDots:all_dots_module|pacDotRow:dotRow11|pacDot:pacDot12|state
+Name state.EATEN 
+state.UNEATEN 0 
+state.EATEN 1 
+
+State Machine - |lab8|allPacDots:all_dots_module|pacDotRow:dotRow11|pacDot:pacDot11|state
+Name state.EATEN 
+state.UNEATEN 0 
+state.EATEN 1 
+
+State Machine - |lab8|allPacDots:all_dots_module|pacDotRow:dotRow11|pacDot:pacDot10|state
+Name state.EATEN 
+state.UNEATEN 0 
+state.EATEN 1 
+
+State Machine - |lab8|allPacDots:all_dots_module|pacDotRow:dotRow11|pacDot:pacDot9|state
+Name state.EATEN 
+state.UNEATEN 0 
+state.EATEN 1 
+
+State Machine - |lab8|allPacDots:all_dots_module|pacDotRow:dotRow11|pacDot:pacDot8|state
+Name state.EATEN 
+state.UNEATEN 0 
+state.EATEN 1 
+
+State Machine - |lab8|allPacDots:all_dots_module|pacDotRow:dotRow11|pacDot:pacDot7|state
+Name state.EATEN 
+state.UNEATEN 0 
+state.EATEN 1 
+
+State Machine - |lab8|allPacDots:all_dots_module|pacDotRow:dotRow11|pacDot:pacDot6|state
+Name state.EATEN 
+state.UNEATEN 0 
+state.EATEN 1 
+
+State Machine - |lab8|allPacDots:all_dots_module|pacDotRow:dotRow11|pacDot:pacDot5|state
+Name state.EATEN 
+state.UNEATEN 0 
+state.EATEN 1 
+
+State Machine - |lab8|allPacDots:all_dots_module|pacDotRow:dotRow11|pacDot:pacDot4|state
+Name state.EATEN 
+state.UNEATEN 0 
+state.EATEN 1 
+
+State Machine - |lab8|allPacDots:all_dots_module|pacDotRow:dotRow11|pacDot:pacDot3|state
+Name state.EATEN 
+state.UNEATEN 0 
+state.EATEN 1 
+
+State Machine - |lab8|allPacDots:all_dots_module|pacDotRow:dotRow11|pacDot:pacDot2|state
+Name state.EATEN 
+state.UNEATEN 0 
+state.EATEN 1 
+
+State Machine - |lab8|allPacDots:all_dots_module|pacDotRow:dotRow11|pacDot:pacDot1|state
+Name state.EATEN 
+state.UNEATEN 0 
+state.EATEN 1 
+
+State Machine - |lab8|allPacDots:all_dots_module|pacDotRow:dotRow10|pacDot:pacDot12|state
+Name state.EATEN 
+state.UNEATEN 0 
+state.EATEN 1 
+
+State Machine - |lab8|allPacDots:all_dots_module|pacDotRow:dotRow10|pacDot:pacDot11|state
+Name state.EATEN 
+state.UNEATEN 0 
+state.EATEN 1 
+
+State Machine - |lab8|allPacDots:all_dots_module|pacDotRow:dotRow10|pacDot:pacDot10|state
+Name state.EATEN 
+state.UNEATEN 0 
+state.EATEN 1 
+
+State Machine - |lab8|allPacDots:all_dots_module|pacDotRow:dotRow10|pacDot:pacDot9|state
+Name state.EATEN 
+state.UNEATEN 0 
+state.EATEN 1 
+
+State Machine - |lab8|allPacDots:all_dots_module|pacDotRow:dotRow10|pacDot:pacDot8|state
+Name state.EATEN 
+state.UNEATEN 0 
+state.EATEN 1 
+
+State Machine - |lab8|allPacDots:all_dots_module|pacDotRow:dotRow10|pacDot:pacDot7|state
+Name state.EATEN 
+state.UNEATEN 0 
+state.EATEN 1 
+
+State Machine - |lab8|allPacDots:all_dots_module|pacDotRow:dotRow10|pacDot:pacDot6|state
+Name state.EATEN 
+state.UNEATEN 0 
+state.EATEN 1 
+
+State Machine - |lab8|allPacDots:all_dots_module|pacDotRow:dotRow10|pacDot:pacDot5|state
+Name state.EATEN 
+state.UNEATEN 0 
+state.EATEN 1 
+
+State Machine - |lab8|allPacDots:all_dots_module|pacDotRow:dotRow10|pacDot:pacDot4|state
+Name state.EATEN 
+state.UNEATEN 0 
+state.EATEN 1 
+
+State Machine - |lab8|allPacDots:all_dots_module|pacDotRow:dotRow10|pacDot:pacDot3|state
+Name state.EATEN 
+state.UNEATEN 0 
+state.EATEN 1 
+
+State Machine - |lab8|allPacDots:all_dots_module|pacDotRow:dotRow10|pacDot:pacDot2|state
+Name state.EATEN 
+state.UNEATEN 0 
+state.EATEN 1 
+
+State Machine - |lab8|allPacDots:all_dots_module|pacDotRow:dotRow10|pacDot:pacDot1|state
+Name state.EATEN 
+state.UNEATEN 0 
+state.EATEN 1 
+
+State Machine - |lab8|allPacDots:all_dots_module|pacDotRow:dotRow9|pacDot:pacDot12|state
+Name state.EATEN 
+state.UNEATEN 0 
+state.EATEN 1 
+
+State Machine - |lab8|allPacDots:all_dots_module|pacDotRow:dotRow9|pacDot:pacDot11|state
+Name state.EATEN 
+state.UNEATEN 0 
+state.EATEN 1 
+
+State Machine - |lab8|allPacDots:all_dots_module|pacDotRow:dotRow9|pacDot:pacDot10|state
+Name state.EATEN 
+state.UNEATEN 0 
+state.EATEN 1 
+
+State Machine - |lab8|allPacDots:all_dots_module|pacDotRow:dotRow9|pacDot:pacDot9|state
+Name state.EATEN 
+state.UNEATEN 0 
+state.EATEN 1 
+
+State Machine - |lab8|allPacDots:all_dots_module|pacDotRow:dotRow9|pacDot:pacDot8|state
+Name state.EATEN 
+state.UNEATEN 0 
+state.EATEN 1 
+
+State Machine - |lab8|allPacDots:all_dots_module|pacDotRow:dotRow9|pacDot:pacDot7|state
+Name state.EATEN 
+state.UNEATEN 0 
+state.EATEN 1 
+
+State Machine - |lab8|allPacDots:all_dots_module|pacDotRow:dotRow9|pacDot:pacDot6|state
+Name state.EATEN 
+state.UNEATEN 0 
+state.EATEN 1 
+
+State Machine - |lab8|allPacDots:all_dots_module|pacDotRow:dotRow9|pacDot:pacDot5|state
+Name state.EATEN 
+state.UNEATEN 0 
+state.EATEN 1 
+
+State Machine - |lab8|allPacDots:all_dots_module|pacDotRow:dotRow9|pacDot:pacDot4|state
+Name state.EATEN 
+state.UNEATEN 0 
+state.EATEN 1 
+
+State Machine - |lab8|allPacDots:all_dots_module|pacDotRow:dotRow9|pacDot:pacDot3|state
+Name state.EATEN 
+state.UNEATEN 0 
+state.EATEN 1 
+
+State Machine - |lab8|allPacDots:all_dots_module|pacDotRow:dotRow9|pacDot:pacDot2|state
+Name state.EATEN 
+state.UNEATEN 0 
+state.EATEN 1 
+
+State Machine - |lab8|allPacDots:all_dots_module|pacDotRow:dotRow9|pacDot:pacDot1|state
+Name state.EATEN 
+state.UNEATEN 0 
+state.EATEN 1 
+
+State Machine - |lab8|allPacDots:all_dots_module|pacDotRow:dotRow8|pacDot:pacDot12|state
+Name state.EATEN 
+state.UNEATEN 0 
+state.EATEN 1 
+
+State Machine - |lab8|allPacDots:all_dots_module|pacDotRow:dotRow8|pacDot:pacDot11|state
+Name state.EATEN 
+state.UNEATEN 0 
+state.EATEN 1 
+
+State Machine - |lab8|allPacDots:all_dots_module|pacDotRow:dotRow8|pacDot:pacDot10|state
+Name state.EATEN 
+state.UNEATEN 0 
+state.EATEN 1 
+
+State Machine - |lab8|allPacDots:all_dots_module|pacDotRow:dotRow8|pacDot:pacDot9|state
+Name state.EATEN 
+state.UNEATEN 0 
+state.EATEN 1 
+
+State Machine - |lab8|allPacDots:all_dots_module|pacDotRow:dotRow8|pacDot:pacDot8|state
+Name state.EATEN 
+state.UNEATEN 0 
+state.EATEN 1 
+
+State Machine - |lab8|allPacDots:all_dots_module|pacDotRow:dotRow8|pacDot:pacDot7|state
+Name state.EATEN 
+state.UNEATEN 0 
+state.EATEN 1 
+
+State Machine - |lab8|allPacDots:all_dots_module|pacDotRow:dotRow8|pacDot:pacDot6|state
+Name state.EATEN 
+state.UNEATEN 0 
+state.EATEN 1 
+
+State Machine - |lab8|allPacDots:all_dots_module|pacDotRow:dotRow8|pacDot:pacDot5|state
+Name state.EATEN 
+state.UNEATEN 0 
+state.EATEN 1 
+
+State Machine - |lab8|allPacDots:all_dots_module|pacDotRow:dotRow8|pacDot:pacDot4|state
+Name state.EATEN 
+state.UNEATEN 0 
+state.EATEN 1 
+
+State Machine - |lab8|allPacDots:all_dots_module|pacDotRow:dotRow8|pacDot:pacDot3|state
+Name state.EATEN 
+state.UNEATEN 0 
+state.EATEN 1 
+
+State Machine - |lab8|allPacDots:all_dots_module|pacDotRow:dotRow8|pacDot:pacDot2|state
+Name state.EATEN 
+state.UNEATEN 0 
+state.EATEN 1 
+
+State Machine - |lab8|allPacDots:all_dots_module|pacDotRow:dotRow8|pacDot:pacDot1|state
+Name state.EATEN 
+state.UNEATEN 0 
+state.EATEN 1 
+
+State Machine - |lab8|allPacDots:all_dots_module|pacDotRow:dotRow7|pacDot:pacDot12|state
+Name state.EATEN 
+state.UNEATEN 0 
+state.EATEN 1 
+
+State Machine - |lab8|allPacDots:all_dots_module|pacDotRow:dotRow7|pacDot:pacDot11|state
+Name state.EATEN 
+state.UNEATEN 0 
+state.EATEN 1 
+
+State Machine - |lab8|allPacDots:all_dots_module|pacDotRow:dotRow7|pacDot:pacDot10|state
+Name state.EATEN 
+state.UNEATEN 0 
+state.EATEN 1 
+
+State Machine - |lab8|allPacDots:all_dots_module|pacDotRow:dotRow7|pacDot:pacDot9|state
+Name state.EATEN 
+state.UNEATEN 0 
+state.EATEN 1 
+
+State Machine - |lab8|allPacDots:all_dots_module|pacDotRow:dotRow7|pacDot:pacDot8|state
+Name state.EATEN 
+state.UNEATEN 0 
+state.EATEN 1 
+
+State Machine - |lab8|allPacDots:all_dots_module|pacDotRow:dotRow7|pacDot:pacDot7|state
+Name state.EATEN 
+state.UNEATEN 0 
+state.EATEN 1 
+
+State Machine - |lab8|allPacDots:all_dots_module|pacDotRow:dotRow7|pacDot:pacDot6|state
+Name state.EATEN 
+state.UNEATEN 0 
+state.EATEN 1 
+
+State Machine - |lab8|allPacDots:all_dots_module|pacDotRow:dotRow7|pacDot:pacDot5|state
+Name state.EATEN 
+state.UNEATEN 0 
+state.EATEN 1 
+
+State Machine - |lab8|allPacDots:all_dots_module|pacDotRow:dotRow7|pacDot:pacDot4|state
+Name state.EATEN 
+state.UNEATEN 0 
+state.EATEN 1 
+
+State Machine - |lab8|allPacDots:all_dots_module|pacDotRow:dotRow7|pacDot:pacDot3|state
+Name state.EATEN 
+state.UNEATEN 0 
+state.EATEN 1 
+
+State Machine - |lab8|allPacDots:all_dots_module|pacDotRow:dotRow7|pacDot:pacDot2|state
+Name state.EATEN 
+state.UNEATEN 0 
+state.EATEN 1 
+
+State Machine - |lab8|allPacDots:all_dots_module|pacDotRow:dotRow7|pacDot:pacDot1|state
+Name state.EATEN 
+state.UNEATEN 0 
+state.EATEN 1 
+
+State Machine - |lab8|allPacDots:all_dots_module|pacDotRow:dotRow6|pacDot:pacDot12|state
+Name state.EATEN 
+state.UNEATEN 0 
+state.EATEN 1 
+
+State Machine - |lab8|allPacDots:all_dots_module|pacDotRow:dotRow6|pacDot:pacDot11|state
+Name state.EATEN 
+state.UNEATEN 0 
+state.EATEN 1 
+
+State Machine - |lab8|allPacDots:all_dots_module|pacDotRow:dotRow6|pacDot:pacDot10|state
+Name state.EATEN 
+state.UNEATEN 0 
+state.EATEN 1 
+
+State Machine - |lab8|allPacDots:all_dots_module|pacDotRow:dotRow6|pacDot:pacDot9|state
+Name state.EATEN 
+state.UNEATEN 0 
+state.EATEN 1 
+
+State Machine - |lab8|allPacDots:all_dots_module|pacDotRow:dotRow6|pacDot:pacDot8|state
+Name state.EATEN 
+state.UNEATEN 0 
+state.EATEN 1 
+
+State Machine - |lab8|allPacDots:all_dots_module|pacDotRow:dotRow6|pacDot:pacDot7|state
+Name state.EATEN 
+state.UNEATEN 0 
+state.EATEN 1 
+
+State Machine - |lab8|allPacDots:all_dots_module|pacDotRow:dotRow6|pacDot:pacDot6|state
+Name state.EATEN 
+state.UNEATEN 0 
+state.EATEN 1 
+
+State Machine - |lab8|allPacDots:all_dots_module|pacDotRow:dotRow6|pacDot:pacDot5|state
+Name state.EATEN 
+state.UNEATEN 0 
+state.EATEN 1 
+
+State Machine - |lab8|allPacDots:all_dots_module|pacDotRow:dotRow6|pacDot:pacDot4|state
+Name state.EATEN 
+state.UNEATEN 0 
+state.EATEN 1 
+
+State Machine - |lab8|allPacDots:all_dots_module|pacDotRow:dotRow6|pacDot:pacDot3|state
+Name state.EATEN 
+state.UNEATEN 0 
+state.EATEN 1 
+
+State Machine - |lab8|allPacDots:all_dots_module|pacDotRow:dotRow6|pacDot:pacDot2|state
+Name state.EATEN 
+state.UNEATEN 0 
+state.EATEN 1 
+
+State Machine - |lab8|allPacDots:all_dots_module|pacDotRow:dotRow6|pacDot:pacDot1|state
+Name state.EATEN 
+state.UNEATEN 0 
+state.EATEN 1 
+
+State Machine - |lab8|allPacDots:all_dots_module|pacDotRow:dotRow5|pacDot:pacDot12|state
+Name state.EATEN 
+state.UNEATEN 0 
+state.EATEN 1 
+
+State Machine - |lab8|allPacDots:all_dots_module|pacDotRow:dotRow5|pacDot:pacDot11|state
+Name state.EATEN 
+state.UNEATEN 0 
+state.EATEN 1 
+
+State Machine - |lab8|allPacDots:all_dots_module|pacDotRow:dotRow5|pacDot:pacDot10|state
+Name state.EATEN 
+state.UNEATEN 0 
+state.EATEN 1 
+
+State Machine - |lab8|allPacDots:all_dots_module|pacDotRow:dotRow5|pacDot:pacDot9|state
+Name state.EATEN 
+state.UNEATEN 0 
+state.EATEN 1 
+
+State Machine - |lab8|allPacDots:all_dots_module|pacDotRow:dotRow5|pacDot:pacDot8|state
+Name state.EATEN 
+state.UNEATEN 0 
+state.EATEN 1 
+
+State Machine - |lab8|allPacDots:all_dots_module|pacDotRow:dotRow5|pacDot:pacDot7|state
+Name state.EATEN 
+state.UNEATEN 0 
+state.EATEN 1 
+
+State Machine - |lab8|allPacDots:all_dots_module|pacDotRow:dotRow5|pacDot:pacDot6|state
+Name state.EATEN 
+state.UNEATEN 0 
+state.EATEN 1 
+
+State Machine - |lab8|allPacDots:all_dots_module|pacDotRow:dotRow5|pacDot:pacDot5|state
+Name state.EATEN 
+state.UNEATEN 0 
+state.EATEN 1 
+
+State Machine - |lab8|allPacDots:all_dots_module|pacDotRow:dotRow5|pacDot:pacDot4|state
+Name state.EATEN 
+state.UNEATEN 0 
+state.EATEN 1 
+
+State Machine - |lab8|allPacDots:all_dots_module|pacDotRow:dotRow5|pacDot:pacDot3|state
+Name state.EATEN 
+state.UNEATEN 0 
+state.EATEN 1 
+
+State Machine - |lab8|allPacDots:all_dots_module|pacDotRow:dotRow5|pacDot:pacDot2|state
+Name state.EATEN 
+state.UNEATEN 0 
+state.EATEN 1 
+
+State Machine - |lab8|allPacDots:all_dots_module|pacDotRow:dotRow5|pacDot:pacDot1|state
+Name state.EATEN 
+state.UNEATEN 0 
+state.EATEN 1 
+
+State Machine - |lab8|allPacDots:all_dots_module|pacDotRow:dotRow4|pacDot:pacDot12|state
+Name state.EATEN 
+state.UNEATEN 0 
+state.EATEN 1 
+
+State Machine - |lab8|allPacDots:all_dots_module|pacDotRow:dotRow4|pacDot:pacDot11|state
+Name state.EATEN 
+state.UNEATEN 0 
+state.EATEN 1 
+
+State Machine - |lab8|allPacDots:all_dots_module|pacDotRow:dotRow4|pacDot:pacDot10|state
+Name state.EATEN 
+state.UNEATEN 0 
+state.EATEN 1 
+
+State Machine - |lab8|allPacDots:all_dots_module|pacDotRow:dotRow4|pacDot:pacDot9|state
+Name state.EATEN 
+state.UNEATEN 0 
+state.EATEN 1 
+
+State Machine - |lab8|allPacDots:all_dots_module|pacDotRow:dotRow4|pacDot:pacDot8|state
+Name state.EATEN 
+state.UNEATEN 0 
+state.EATEN 1 
+
+State Machine - |lab8|allPacDots:all_dots_module|pacDotRow:dotRow4|pacDot:pacDot7|state
+Name state.EATEN 
+state.UNEATEN 0 
+state.EATEN 1 
+
+State Machine - |lab8|allPacDots:all_dots_module|pacDotRow:dotRow4|pacDot:pacDot6|state
+Name state.EATEN 
+state.UNEATEN 0 
+state.EATEN 1 
+
+State Machine - |lab8|allPacDots:all_dots_module|pacDotRow:dotRow4|pacDot:pacDot5|state
+Name state.EATEN 
+state.UNEATEN 0 
+state.EATEN 1 
+
+State Machine - |lab8|allPacDots:all_dots_module|pacDotRow:dotRow4|pacDot:pacDot4|state
+Name state.EATEN 
+state.UNEATEN 0 
+state.EATEN 1 
+
+State Machine - |lab8|allPacDots:all_dots_module|pacDotRow:dotRow4|pacDot:pacDot3|state
+Name state.EATEN 
+state.UNEATEN 0 
+state.EATEN 1 
+
+State Machine - |lab8|allPacDots:all_dots_module|pacDotRow:dotRow4|pacDot:pacDot2|state
+Name state.EATEN 
+state.UNEATEN 0 
+state.EATEN 1 
+
+State Machine - |lab8|allPacDots:all_dots_module|pacDotRow:dotRow4|pacDot:pacDot1|state
+Name state.EATEN 
+state.UNEATEN 0 
+state.EATEN 1 
+
+State Machine - |lab8|allPacDots:all_dots_module|pacDotRow:dotRow3|pacDot:pacDot12|state
+Name state.EATEN 
+state.UNEATEN 0 
+state.EATEN 1 
+
+State Machine - |lab8|allPacDots:all_dots_module|pacDotRow:dotRow3|pacDot:pacDot11|state
+Name state.EATEN 
+state.UNEATEN 0 
+state.EATEN 1 
+
+State Machine - |lab8|allPacDots:all_dots_module|pacDotRow:dotRow3|pacDot:pacDot10|state
+Name state.EATEN 
+state.UNEATEN 0 
+state.EATEN 1 
+
+State Machine - |lab8|allPacDots:all_dots_module|pacDotRow:dotRow3|pacDot:pacDot9|state
+Name state.EATEN 
+state.UNEATEN 0 
+state.EATEN 1 
+
+State Machine - |lab8|allPacDots:all_dots_module|pacDotRow:dotRow3|pacDot:pacDot8|state
+Name state.EATEN 
+state.UNEATEN 0 
+state.EATEN 1 
+
+State Machine - |lab8|allPacDots:all_dots_module|pacDotRow:dotRow3|pacDot:pacDot7|state
+Name state.EATEN 
+state.UNEATEN 0 
+state.EATEN 1 
+
+State Machine - |lab8|allPacDots:all_dots_module|pacDotRow:dotRow3|pacDot:pacDot6|state
+Name state.EATEN 
+state.UNEATEN 0 
+state.EATEN 1 
+
+State Machine - |lab8|allPacDots:all_dots_module|pacDotRow:dotRow3|pacDot:pacDot5|state
+Name state.EATEN 
+state.UNEATEN 0 
+state.EATEN 1 
+
+State Machine - |lab8|allPacDots:all_dots_module|pacDotRow:dotRow3|pacDot:pacDot4|state
+Name state.EATEN 
+state.UNEATEN 0 
+state.EATEN 1 
+
+State Machine - |lab8|allPacDots:all_dots_module|pacDotRow:dotRow3|pacDot:pacDot3|state
+Name state.EATEN 
+state.UNEATEN 0 
+state.EATEN 1 
+
+State Machine - |lab8|allPacDots:all_dots_module|pacDotRow:dotRow3|pacDot:pacDot2|state
+Name state.EATEN 
+state.UNEATEN 0 
+state.EATEN 1 
+
+State Machine - |lab8|allPacDots:all_dots_module|pacDotRow:dotRow3|pacDot:pacDot1|state
+Name state.EATEN 
+state.UNEATEN 0 
+state.EATEN 1 
+
+State Machine - |lab8|allPacDots:all_dots_module|pacDotRow:dotRow2|pacDot:pacDot12|state
+Name state.EATEN 
+state.UNEATEN 0 
+state.EATEN 1 
+
+State Machine - |lab8|allPacDots:all_dots_module|pacDotRow:dotRow2|pacDot:pacDot11|state
+Name state.EATEN 
+state.UNEATEN 0 
+state.EATEN 1 
+
+State Machine - |lab8|allPacDots:all_dots_module|pacDotRow:dotRow2|pacDot:pacDot10|state
+Name state.EATEN 
+state.UNEATEN 0 
+state.EATEN 1 
+
+State Machine - |lab8|allPacDots:all_dots_module|pacDotRow:dotRow2|pacDot:pacDot9|state
+Name state.EATEN 
+state.UNEATEN 0 
+state.EATEN 1 
+
+State Machine - |lab8|allPacDots:all_dots_module|pacDotRow:dotRow2|pacDot:pacDot8|state
+Name state.EATEN 
+state.UNEATEN 0 
+state.EATEN 1 
+
+State Machine - |lab8|allPacDots:all_dots_module|pacDotRow:dotRow2|pacDot:pacDot7|state
+Name state.EATEN 
+state.UNEATEN 0 
+state.EATEN 1 
+
+State Machine - |lab8|allPacDots:all_dots_module|pacDotRow:dotRow2|pacDot:pacDot6|state
+Name state.EATEN 
+state.UNEATEN 0 
+state.EATEN 1 
+
+State Machine - |lab8|allPacDots:all_dots_module|pacDotRow:dotRow2|pacDot:pacDot5|state
+Name state.EATEN 
+state.UNEATEN 0 
+state.EATEN 1 
+
+State Machine - |lab8|allPacDots:all_dots_module|pacDotRow:dotRow2|pacDot:pacDot4|state
+Name state.EATEN 
+state.UNEATEN 0 
+state.EATEN 1 
+
+State Machine - |lab8|allPacDots:all_dots_module|pacDotRow:dotRow2|pacDot:pacDot3|state
+Name state.EATEN 
+state.UNEATEN 0 
+state.EATEN 1 
+
+State Machine - |lab8|allPacDots:all_dots_module|pacDotRow:dotRow2|pacDot:pacDot2|state
+Name state.EATEN 
+state.UNEATEN 0 
+state.EATEN 1 
+
+State Machine - |lab8|allPacDots:all_dots_module|pacDotRow:dotRow2|pacDot:pacDot1|state
+Name state.EATEN 
+state.UNEATEN 0 
+state.EATEN 1 
+
+State Machine - |lab8|allPacDots:all_dots_module|pacDotRow:dotRow1|pacDot:pacDot12|state
+Name state.EATEN 
+state.UNEATEN 0 
+state.EATEN 1 
+
+State Machine - |lab8|allPacDots:all_dots_module|pacDotRow:dotRow1|pacDot:pacDot11|state
+Name state.EATEN 
+state.UNEATEN 0 
+state.EATEN 1 
+
+State Machine - |lab8|allPacDots:all_dots_module|pacDotRow:dotRow1|pacDot:pacDot10|state
+Name state.EATEN 
+state.UNEATEN 0 
+state.EATEN 1 
+
+State Machine - |lab8|allPacDots:all_dots_module|pacDotRow:dotRow1|pacDot:pacDot9|state
+Name state.EATEN 
+state.UNEATEN 0 
+state.EATEN 1 
+
+State Machine - |lab8|allPacDots:all_dots_module|pacDotRow:dotRow1|pacDot:pacDot8|state
+Name state.EATEN 
+state.UNEATEN 0 
+state.EATEN 1 
+
+State Machine - |lab8|allPacDots:all_dots_module|pacDotRow:dotRow1|pacDot:pacDot7|state
+Name state.EATEN 
+state.UNEATEN 0 
+state.EATEN 1 
+
+State Machine - |lab8|allPacDots:all_dots_module|pacDotRow:dotRow1|pacDot:pacDot6|state
+Name state.EATEN 
+state.UNEATEN 0 
+state.EATEN 1 
+
+State Machine - |lab8|allPacDots:all_dots_module|pacDotRow:dotRow1|pacDot:pacDot5|state
+Name state.EATEN 
+state.UNEATEN 0 
+state.EATEN 1 
+
+State Machine - |lab8|allPacDots:all_dots_module|pacDotRow:dotRow1|pacDot:pacDot4|state
+Name state.EATEN 
+state.UNEATEN 0 
+state.EATEN 1 
+
+State Machine - |lab8|allPacDots:all_dots_module|pacDotRow:dotRow1|pacDot:pacDot3|state
+Name state.EATEN 
+state.UNEATEN 0 
+state.EATEN 1 
+
+State Machine - |lab8|allPacDots:all_dots_module|pacDotRow:dotRow1|pacDot:pacDot2|state
+Name state.EATEN 
+state.UNEATEN 0 
+state.EATEN 1 
+
+State Machine - |lab8|allPacDots:all_dots_module|pacDotRow:dotRow1|pacDot:pacDot1|state
+Name state.EATEN 
+state.UNEATEN 0 
+state.EATEN 1 

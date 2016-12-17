@@ -1,0 +1,29 @@
+//-------------------------------------------------------------------------
+//    pac.sv                                                            --
+//    Viral Mehta                                                        --
+//    Spring 2005                                                        --
+//                                                                       --
+//    Modified by Stephen Kempf 03-01-2006                               --
+//                              03-12-2007                               --
+//    Translated by Joe Meng    07-07-2013                               --
+//    Fall 2014 Distribution                                             --
+//                                                                       --
+//    For use with ECE 298 Lab 7                                         --
+//    UIUC ECE Department                                                --
+//-------------------------------------------------------------------------
+
+
+module check_walls_row #(N = 12) ( 
+					input Reset, frame_clk,
+					input [N:0]  vert_walls,
+					input [N-1:0] below_walls, above_walls
+					input [4:0] xpos,
+               output logic turnL, turnR, turnU, turnD);
+    
+	 
+    logic [9:0] pac_X_Pos, pac_X_Motion, pac_Y_Motion, pac_X_Turn_Motion, pac_Y_Pos, pac_Y_Turn_Motion, pac_Size, pac_X_Continue_Motion, pac_Y_Continue_Motion;
+	 
+	 logic atIntersection, turn_blocked, continue_blocked;
+
+
+endmodule

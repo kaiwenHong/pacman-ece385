@@ -1,0 +1,71 @@
+//-------------------------------------------------------------------------
+//    pac.sv                                                            --
+//    Viral Mehta                                                        --
+//    Spring 2005                                                        --
+//                                                                       --
+//    Modified by Stephen Kempf 03-01-2006                               --
+//                              03-12-2007                               --
+//    Translated by Joe Meng    07-07-2013                               --
+//    Fall 2014 Distribution                                             --
+//                                                                       --
+//    For use with ECE 298 Lab 7                                         --
+//    UIUC ECE Department                                                --
+//-------------------------------------------------------------------------
+
+
+module get_walls ( 
+					input  [0:1] level,
+					output [0:155] horiz_walls, vert_walls,
+               );
+    
+    logic lvl0vert, lvl0horiz;
+	 
+	 always_comb begin
+			unique case (level)
+				2'b00 : begin
+					horiz_walls = lvl0horiz;
+					vert_walls  = lvl0vert;
+				end
+				default : begin
+					horiz_walls = {156{1'b1}};
+					vert_walls  = {156{1'b1}};
+				end
+			
+			endcase
+	 end
+   
+    assign lvl0vert = {
+	 13'h1001,
+	 13'h1001,
+	 13'h1001,
+	 13'h1001,
+	 13'h1001,
+	 13'h1001,
+	 13'h1001,
+	 13'h1001,
+	 13'h1001,
+	 13'h1001,
+	 13'h1001,
+	 13'h1001,
+	 
+	 
+	 };
+	 assign lvl0horiz = {
+		{12{1'b1}},
+		{12{1'b0}},
+		{12{1'b0}},
+		{12{1'b0}},
+		{12{1'b0}},
+		{12{1'b0}},
+		{12{1'b0}},
+		{12{1'b0}},
+		{12{1'b0}},
+		{12{1'b0}},
+		{12{1'b0}},
+		{12{1'b0}},
+		{12{1'b1}},
+	 }
+	 
+    
+
+endmodule

@@ -1,0 +1,252 @@
+//-------------------------------------------------------------------------
+//    pac.sv                                                            --
+//    Viral Mehta                                                        --
+//    Spring 2005                                                        --
+//                                                                       --
+//    Modified by Stephen Kempf 03-01-2006                               --
+//                              03-12-2007                               --
+//    Translated by Joe Meng    07-07-2013                               --
+//    Fall 2014 Distribution                                             --
+//                                                                       --
+//    For use with ECE 298 Lab 7                                         --
+//    UIUC ECE Department                                                --
+//-------------------------------------------------------------------------
+
+
+module  ghost_motion ( input Reset, frame_clk,
+					input [15:0]  keycode,
+					input [155:0] horiz_walls, vert_walls,
+					output [7:0] testing,
+					output [7:0] testing2,
+               output [9:0]  pacX, pacY, pacS );
+					
+    
+    logic [9:0] pac_X_Pos, pac_X_Motion, pac_Y_Motion, pac_X_Turn_Motion, pac_Y_Pos, pac_Y_Turn_Motion, pac_Size, pac_X_Continue_Motion, pac_Y_Continue_Motion;
+	 logic [9:0] last_X_Turn_Motion, last_Y_Turn_Motion;
+	 logic atIntersection, turn_blocked, continue_blocked;
+	 logic [9:0] X_motion_final, Y_motion_final;
+	 //logic last_turn_blocked;
+	 
+    parameter [9:0] pac_X_Center=320;  // Center position on the X axis
+    parameter [9:0] pac_Y_Center=240;  // Center position on the Y axis
+	 parameter [9:0] pac_X_Start=160;  // Center position on the X axis
+    parameter [9:0] pac_Y_Start=160;  // Center position on the Y axis
+    parameter [9:0] pac_X_Min=0;       // Leftmost point on the X axis
+    parameter [9:0] pac_X_Max=639;     // Rightmost point on the X axis
+    parameter [9:0] pac_Y_Min=0;       // Topmost point on the Y axis
+    parameter [9:0] pac_Y_Max=479;     // Bottommost point on the Y axis
+    parameter [9:0] pac_X_Step=1;      // Step size on the X axis
+    parameter [9:0] pac_Y_Step=1;      // Step size on the Y axis
+
+	 logic turnL, turnR, turnU, turnD;
+	 logic left, right, up, down; // current motion
+	 logic [2:0] turnDir; // LRUD - 0,1,2,3,
+	 check_walls check_walls_module(.*, .xpos(pac_X_Pos[9:5]), .ypos(pac_Y_Pos[9:5]), .outTurnL(turnL), .outTurnR(turnR), .outTurnU(turnU), .outTurnD(turnD), .testing(testing2) );
+	 
+    assign pac_Size = 4;  // assigns the value 4 as a 10-digit binary number, ie "0000000100"
+    logic [15:0] codeA, codeW, codeS, codeD;
+	 assign codeA = 16'h0004;
+	 assign codeW = 16'h001a;
+	 assign codeS = 16'h0016;
+	 assign codeD = 16'h0007;
+	 
+	 //assign testing = {Y_motion_final[3:0], X_motion_final[3:0]};
+	 assign testing = {turnL, turnR, turnU, turnD, pac_X_Pos[8:5]};
+	 //assign testing = {pac_X_Pos[8:5], pac_Y_Pos[8:5]};
+	 
+	 always_comb begin
+		 if (keycode == codeS)
+		 begin
+			  pac_Y_Turn_Motion = pac_Y_Step;
+			  pac_X_Turn_Motion = 10'd0;
+			  turn_blocked = ~turnD;
+			  turnDir = 3'b011;
+		 end
+		 else if (keycode == codeW)
+		 begin
+			  pac_Y_Turn_Motion = (~ (pac_Y_Step) + 1'b1);  // 2's complement.
+			  pac_X_Turn_Motion = 10'd0;
+			  turn_blocked = ~turnU;
+			  turnDir = 3'b010;
+		 end
+		 else if (keycode == codeD)
+		 begin
+			  pac_Y_Turn_Motion = 10'd0;
+			  pac_X_Turn_Motion = pac_X_Step;
+			  turn_blocked = ~turnR;
+			  turnDir = 3'b001;
+		 end
+		 
+		 else if (keycode == codeA)
+		 begin
+			  pac_Y_Turn_Motion = 10'd0;
+			  pac_X_Turn_Motion = (~ (pac_X_Step) + 1'b1);  // 2's complement.
+			  turn_blocked = ~turnL;
+			  turnDir = 3'b000;
+		 end
+		 else
+		 begin
+			  pac_Y_Turn_Motion = last_Y_Turn_Motion;
+			  pac_X_Turn_Motion = last_X_Turn_Motion;
+			  //pac_Y_Turn_Motion = 10'd0;
+			  //pac_X_Turn_Motion = 10'd0;
+			  turn_blocked = 1'b1;
+			  //turn_blocked = last_turn_blocked;
+			  turnDir = 3'b111;
+		 end
+		 
+		 atIntersection = ~(pac_X_Pos[0] | pac_X_Pos[1] | pac_X_Pos[2] | pac_X_Pos[3] | pac_X_Pos[4] | pac_Y_Pos[0] | pac_Y_Pos[1] | pac_Y_Pos[2] | pac_Y_Pos[3] | pac_Y_Pos[4]);
+		 
+		 //if(pac_X_Pos[9:5] == 5'h01)
+		 
+		 left = pac_X_Motion[9];
+		 up   = pac_Y_Motion[9];
+		 right = pac_X_Motion[0] & ~pac_X_Motion[9];
+		 down  = pac_Y_Motion[0] & ~pac_Y_Motion[9];
+		 
+		 //testing = {left,right,up,down, 1'b0 ,turnDir};
+		 
+		 
+		 if(atIntersection)
+		 begin
+				if(right && turnR)
+				begin
+					pac_X_Continue_Motion = pac_X_Step;
+					pac_Y_Continue_Motion = 10'd0;
+				end
+				else if(left && turnL)
+				begin
+					pac_X_Continue_Motion = (~ (pac_X_Step) + 1'b1);
+					pac_Y_Continue_Motion = 10'd0;
+				end
+				else if(up && turnU)
+				begin
+					pac_X_Continue_Motion = 10'd0;
+					pac_Y_Continue_Motion = (~ (pac_Y_Step) + 1'b1);
+				end
+				else if(down && turnD)
+				begin
+					pac_X_Continue_Motion = 10'd0;
+					pac_Y_Continue_Motion = pac_Y_Step;
+				end
+				else
+				begin
+					pac_X_Continue_Motion = 10'd0;
+					pac_Y_Continue_Motion = 10'd0;
+				end
+				
+		 end
+		 else begin
+				if(turnDir == 3'b000 && right)
+				begin
+					pac_X_Continue_Motion = (~ (pac_X_Step) + 1'b1);
+					pac_Y_Continue_Motion = 10'd0;
+				end
+				else if(turnDir == 3'b001 && left)
+				begin
+					pac_X_Continue_Motion = pac_X_Step;
+					pac_Y_Continue_Motion = 10'd0;
+				end
+				else if(turnDir == 3'b010 && down)
+				begin
+					pac_X_Continue_Motion = 10'd0;
+					pac_Y_Continue_Motion = (~ (pac_Y_Step) + 1'b1);
+				end
+				else if(turnDir == 3'b011 && up)
+				begin
+					pac_X_Continue_Motion = 10'd0;
+					pac_Y_Continue_Motion = pac_Y_Step;
+				end
+				else
+				begin
+					pac_X_Continue_Motion = pac_X_Motion;
+					pac_Y_Continue_Motion = pac_Y_Motion;
+				end
+		 end
+		 
+		 if(turn_blocked == 1'b1 || atIntersection == 1'b0)
+		 begin
+				Y_motion_final = pac_Y_Continue_Motion;
+				X_motion_final = pac_X_Continue_Motion;
+		 end
+		 else begin
+				Y_motion_final = pac_Y_Turn_Motion;
+				X_motion_final = pac_X_Turn_Motion;
+		 end
+		 
+		 
+		 //if(wall)
+		 //begin
+			//pac_Y_Continue_Motion = 10'd0;
+			//pac_X_Continue_Motion = 10'd0;
+		 //end
+	 end
+	 
+    always_ff @ (posedge Reset or posedge frame_clk )
+    begin: Move_pac
+        if (Reset)  // Asynchronous Reset
+        begin
+            pac_Y_Motion <= 10'd0; //pac_Y_Step;
+				pac_X_Motion <= 10'd0; //pac_X_Step;
+				pac_Y_Pos <= pac_Y_Start;
+				pac_X_Pos <= pac_X_Start;
+				last_Y_Turn_Motion <= 10'd0;
+				last_X_Turn_Motion <= 10'd0;
+        end
+           
+        else
+        begin
+		  /*
+				 if ( (pac_Y_Pos + pac_Size) >= pac_Y_Max )  // pac is at the bottom edge, BOUNCE!
+					  pac_Y_Motion <= (~ (pac_Y_Step) + 1'b1);  // 2's complement.
+					  
+				 else if ( (pac_Y_Pos - pac_Size) <= pac_Y_Min )  // pac is at the top edge, BOUNCE!
+					  pac_Y_Motion <= pac_Y_Step;
+					  
+				 else if ( (pac_X_Pos + pac_Size) >= pac_X_Max )  // pac is at the right edge, BOUNCE!
+					  pac_X_Motion <= (~ (pac_X_Step) + 1'b1);  // 2's complement.
+					  
+				 else if ( (pac_X_Pos - pac_Size) <= pac_X_Min )  // pac is at the left edge, BOUNCE!
+					  pac_X_Motion <= pac_X_Step;
+					  
+				 else
+				 begin
+					  pac_Y_Motion <= pac_Y_Motion;  // pac is somewhere in the middle, don't bounce, just keep moving
+					  pac_X_Motion <= pac_X_Motion;
+				 end
+				 */
+				 
+				 /*
+				 if(turn_blocked == 1'b1)
+				 begin
+						pac_Y_Motion <= pac_Y_Continue_Motion;
+					   pac_X_Motion <= pac_X_Continue_Motion;
+				 end
+				 else begin
+						pac_Y_Motion <= pac_Y_Turn_Motion;
+					   pac_X_Motion <= pac_X_Turn_Motion;
+				 end
+				 */
+				 last_Y_Turn_Motion <= pac_Y_Turn_Motion;
+				 last_X_Turn_Motion <= pac_X_Turn_Motion;
+				 pac_Y_Motion <= Y_motion_final;
+				 pac_X_Motion <= X_motion_final;
+				 
+				   // You need to remove this and make both X and Y respond to keyboard input
+				 
+				 pac_Y_Pos <= (pac_Y_Pos + Y_motion_final);  // Update pac position
+				 pac_X_Pos <= (pac_X_Pos + X_motion_final);
+			
+      
+			
+		end  
+    end
+       
+    assign pacX = pac_X_Pos;
+   
+    assign pacY = pac_Y_Pos;
+   
+    assign pacS = pac_Size;
+    
+
+endmodule

@@ -1,0 +1,125 @@
+//-------------------------------------------------------------------------
+//    pac.sv                                                            --
+//    Viral Mehta                                                        --
+//    Spring 2005                                                        --
+//                                                                       --
+//    Modified by Stephen Kempf 03-01-2006                               --
+//                              03-12-2007                               --
+//    Translated by Joe Meng    07-07-2013                               --
+//    Fall 2014 Distribution                                             --
+//                                                                       --
+//    For use with ECE 298 Lab 7                                         --
+//    UIUC ECE Department                                                --
+//-------------------------------------------------------------------------
+
+
+module  check_walls ( input Reset, frame_clk,
+					input [155:0]  horiz_walls, vert_walls,
+					input [4:0] xpos, ypos,
+               output logic turnL, turnR, turnU, turnD);
+    
+    logic [9:0] pac_X_Pos, pac_X_Motion, pac_Y_Motion, pac_X_Turn_Motion, pac_Y_Pos, pac_Y_Turn_Motion, pac_Size, pac_X_Continue_Motion, pac_Y_Continue_Motion;
+	 
+	 logic atIntersection, turn_blocked, continue_blocked;
+	 
+    parameter [9:0] pac_X_Center=320;  // Center position on the X axis
+    parameter [9:0] pac_Y_Center=240;  // Center position on the Y axis
+    parameter [9:0] pac_X_Min=0;       // Leftmost point on the X axis
+    parameter [9:0] pac_X_Max=639;     // Rightmost point on the X axis
+    parameter [9:0] pac_Y_Min=0;       // Topmost point on the Y axis
+    parameter [9:0] pac_Y_Max=479;     // Bottommost point on the Y axis
+    parameter [9:0] pac_X_Step=1;      // Step size on the X axis
+    parameter [9:0] pac_Y_Step=1;      // Step size on the Y axis
+
+    assign pac_Size = 4;  // assigns the value 4 as a 10-digit binary number, ie "0000000100"
+    logic [15:0] codeA, codeW, codeS, codeD;
+	 assign codeA = 16'h0004;
+	 assign codeW = 16'h001a;
+	 assign codeS = 16'h0016;
+	 assign codeD = 16'h0007;
+	 
+	 always_comb begin
+		 if (keycode == codeS)
+		 begin
+			  pac_Y_Turn_Motion = pac_Y_Step;
+			  pac_X_Turn_Motion = 10'd0;
+		 end
+		 else if (keycode == codeW)
+		 begin
+			  pac_X_Turn_Motion = (~ (pac_Y_Step) + 1'b1);  // 2's complement.
+			  pac_X_Turn_Motion = 10'd0;
+		 end
+		 else if (keycode == codeD)
+		 begin
+			  pac_X_Turn_Motion = 10'd0;
+			  pac_X_Turn_Motion = pac_X_Step;
+		 end
+		 
+		 else if (keycode == codeA)
+		 begin
+			  pac_X_Turn_Motion = 10'd0;
+			  pac_X_Turn_Motion = (~ (pac_X_Step) + 1'b1);  // 2's complement.					  
+		 end
+		 
+		 atIntersection = ~(pac_X_Pos[0] | pac_X_Pos[1] | pac_X_Pos[2] | pac_X_Pos[3] | pac_X_Pos[4] | pac_Y_Pos[0] | pac_Y_Pos[1] | pac_Y_Pos[2] | pac_Y_Pos[3] | pac_Y_Pos[4])
+		 
+		 //if(pac_X_Pos[9:5] == 5'h01)
+				
+		 
+		 
+		 pac_X_Continue_Motion = pac_X_Motion;
+		 pac_Y_Continue_Motion = pac_Y_Motion;
+		 //if(wall)
+		 //begin
+			//pac_Y_Continue_Motion = 10'd0;
+			//pac_X_Continue_Motion = 10'd0;
+		 //end
+	 end
+	 
+    always_ff @ (posedge Reset or posedge frame_clk )
+    begin: Move_pac
+        if (Reset)  // Asynchronous Reset
+        begin
+            pac_Y_Motion <= 10'd0; //pac_Y_Step;
+				pac_X_Motion <= 10'd0; //pac_X_Step;
+				pac_Y_Pos <= pac_Y_Center;
+				pac_X_Pos <= pac_X_Center;
+        end
+           
+        else
+        begin
+				 if ( (pac_Y_Pos + pac_Size) >= pac_Y_Max )  // pac is at the bottom edge, BOUNCE!
+					  pac_Y_Motion <= (~ (pac_Y_Step) + 1'b1);  // 2's complement.
+					  
+				 else if ( (pac_Y_Pos - pac_Size) <= pac_Y_Min )  // pac is at the top edge, BOUNCE!
+					  pac_Y_Motion <= pac_Y_Step;
+					  
+				 else if ( (pac_X_Pos + pac_Size) >= pac_X_Max )  // pac is at the right edge, BOUNCE!
+					  pac_X_Motion <= (~ (pac_X_Step) + 1'b1);  // 2's complement.
+					  
+				 else if ( (pac_X_Pos - pac_Size) <= pac_X_Min )  // pac is at the left edge, BOUNCE!
+					  pac_X_Motion <= pac_X_Step;
+				 else
+				 begin
+					  pac_Y_Motion <= pac_Y_Motion;  // pac is somewhere in the middle, don't bounce, just keep moving
+					  pac_X_Motion <= pac_X_Motion;
+				 end
+				 
+				   // You need to remove this and make both X and Y respond to keyboard input
+				 
+				 pac_Y_Pos <= (pac_Y_Pos + pac_Y_Motion);  // Update pac position
+				 pac_X_Pos <= (pac_X_Pos + pac_X_Motion);
+			
+      
+			
+		end  
+    end
+       
+    assign pacX = pac_X_Pos;
+   
+    assign pacY = pac_Y_Pos;
+   
+    assign pacS = pac_Size;
+    
+
+endmodule

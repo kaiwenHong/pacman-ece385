@@ -1,0 +1,91 @@
+module control ( 
+					input  clk,
+					input	 reset,
+					input  keycode,
+					input  pacmanDied,
+					output  [1:0] level,
+					output isPre,
+					output [4:0] displayLevel,
+					output [155:0] horiz_walls, vert_walls
+               );
+    
+	 
+	 enum logic [2:0] { LEVEL1, LEVEL2, BEAT1, BEAT2, NEWGAME } state, next_state;
+	 logic [15:0] codeEnter;
+	 assign codeEnter = 16'h0028;
+	
+	
+	always_ff @ (posedge clk, posedge reset) begin
+		if (reset == 1'b1) begin
+			state <= NEWGAME;
+		end else begin
+			state <= next_state;
+		end
+	end
+	
+	always_comb begin
+		next_state = state;
+		
+		if(pacmanDied)
+		begin
+			next_state = NEWGAME;
+		end
+		else begin
+			case (state)
+			NEWGAME : begin
+				if(keycode == codeEnter)
+					next_state = LEVEL1;
+				else 
+					next_state = NEWGAME;
+			end
+			LEVEL1 : begin
+				//need input based on eating all dots
+			end
+			LEVEL2 : begin
+				//need input based on eating all dots
+			end
+			BEAT1 : begin
+				if(keycode == codeEnter)
+					next_state = LEVEL2;
+				else 
+					next_state = BEAT1;
+			end
+			BEAT2 : begin
+				if(keycode == codeEnter)
+					next_state = LEVEL1;
+				else 
+					next_state = BEAT2;
+			end
+			
+			endcase
+		end
+		
+	end
+	
+	always_comb begin
+		isPre = 1'b0;
+		case (state)
+			NEWGAME: begin
+				level = 2'b01;
+				isPre = 1'b1;
+			end
+			LEVEL1 : begin
+				level = 2'b01;
+			end
+			LEVEL2 : begin
+				level = 2'b10;
+			end
+			BEAT1 : begin
+				level = 2'b01;
+				isPre = 1'b1;
+			end
+			BEAT2 : begin
+				level = 2'b10;
+				isPre = 1'b1;
+			end
+		endcase
+	end
+	
+	
+
+endmodule
